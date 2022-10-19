@@ -1,6 +1,13 @@
 # Products
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+
+Will show the list of products from vendor with sale prices.\
+Choose List Products from side menu.
+
+
+## Configration
+
+In assets/config.dev.json, set apiBaseUrl to the api url 
 
 ## Development server
 
