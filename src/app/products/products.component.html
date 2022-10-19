@@ -1,1 +1,18 @@
-<p>products works!</p>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">Code</th>
+			<th scope="col">Name</th>
+			<th scope="col">Description</th>
+			<th scope="col">Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let product of products; index as i">
+			<td>{{ product.productId }}</td>
+			<td>{{ product.name }}</td>
+			<td>{{ product.description }}</td>
+			<td>{{ product.salePrice | currency:'AUD':'symbol':'1.2-2' }}</td>
+		</tr>
+	</tbody>
+</table>
