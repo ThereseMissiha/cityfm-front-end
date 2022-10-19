@@ -1,4 +1,7 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { APP_INITIALIZER } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ConfigService } from '../shared/services/config.service';
 
 import { ProductsComponent } from './products.component';
 
@@ -8,7 +11,23 @@ describe('ProductsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductsComponent ]
+      declarations: [ ProductsComponent ],       
+      imports: [
+        HttpClientModule
+      ],     
+      providers: [
+        {
+          provide: APP_INITIALIZER,
+          multi: true,
+          deps: [ConfigService],
+          useFactory: (configService:ConfigService) => {
+            return() => {
+              return configService.loadAppConfig();
+            }
+          }
+        },
+        HttpClient
+      ]
     })
     .compileComponents();
 
